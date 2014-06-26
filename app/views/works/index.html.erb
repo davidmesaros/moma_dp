@@ -1,0 +1,19 @@
+<% @works.each do |work| %>
+
+<ul>
+	<li><%= image_tag(work.image, :class => 'thumb') %></li>
+	<li><%= work.title %></li>
+	<li><%= work.year %></li>
+    <div class="edit"
+	<li><%= link_to(work.artist.name, work.artist) if work.artist %></li>
+	</div>
+	<li><%= work.medium %></li>
+	<li><%= work.style %></li>
+	<div class="edit">
+	<li><%= link_to('Edit', edit_work_path(work)) %>
+
+	<%= link_to('Delete', work, :method => :delete, :confirm => "Are you sure you want to delete this work?") %></li>
+	</div>
+</ul>
+
+<% end %>

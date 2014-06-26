@@ -1,0 +1,20 @@
+<% @artists.each do |artist| %>
+
+<ul>
+	<li><%= image_tag(artist.image, :class => 'thumb') %></li>
+	<div class="edit">
+	<li><%= link_to(artist.name, artist) %></li>
+	</div>
+	
+	
+	<li>Naionality: <%= artist.nationality %></li>
+	<li>DOB: <%= artist.dob if artist.dob %></li>
+	<li>Period: <%= artist.period %></li>
+	<div class="edit">
+	<%= link_to('Edit', edit_artist_path(artist)) %>
+    
+	<%= link_to('Delete', artist, :method => :delete, :confirm => "Are you sure you want to delete this work?") %>
+	</div>
+</ul>
+
+<% end %>

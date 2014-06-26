@@ -1,0 +1,16 @@
+<h2><%= @artist.name %></h2>
+<ul>
+  <li><%= image_tag(@artist.image, :class => 'medium') %></li>
+  <li><%= @artist.nationality %></li>
+  <li><%= @artist.dob if @artist.dob %></li>
+  <li><%= @artist.period %></li>
+</ul>
+
+<% @artist.works.each do |work| %>
+  <div class="work ">
+    <%= image_tag(work.image) %>
+    <div class="edit">
+    <p><%= link_to(work.title, work) %></p>
+    </div>
+  </div>
+<% end %>
